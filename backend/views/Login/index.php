@@ -11,15 +11,20 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-  <body>
+ <body>
     <div class="container">
 
       <form class="form-horizontal" role="form">
-          <center><h1> <label>เข้าสู่ระบบ</label></h1></center>
+        <div class="panel panel-default">
+  <div class="panel-heading">
+    <center><h3><label>เข้าสู้ระบบ</label></h3></center></div>
+        <div class="form-group">
+
+  <div class="panel-body">
   <div class="form-group">
     <label for="input_username" class="col-sm-4 control-label">ชื่อผู้ใช้</label>
     <div class="col-sm-5">
-      <input type="text" class="form-control" id="input_username" placeholder="ชื่อผู้ใช">
+      <input type="text" class="form-control" id="input_username" placeholder="ชื่อผู้ใช้">
     </div>
   </div>
   <div class="form-group">
@@ -39,8 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
   </div>
 
 </form>
-
-      </div>
-  </body>
+</div>
+</div>
 </html>
 
