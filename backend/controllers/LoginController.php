@@ -95,4 +95,10 @@ class LoginController extends Controller
 
         return $this->goHome();
     }
+    public function actionRegister()
+    {
+    	return $this->render('register', [
+    			 
+    	]);
+    }
 }
