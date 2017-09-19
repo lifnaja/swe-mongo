@@ -10,7 +10,7 @@ use common\models\LoginForm;
 /**
  * Site controller
  */
-class LoginAction extends Controller
+class LoginController extends Controller
 {
     /**
      * @inheritdoc
