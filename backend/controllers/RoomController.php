@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\User;
 
 /**
  * Site controller
@@ -47,7 +48,7 @@ class RoomController extends Controller
 		$request = Yii::$app->request;
     	$search = $request->get('search',null);
     	 
-    	$query = Room::find();
+    	$query = User
     	if($search != null){
     		$query->where(["name" => $search]);
     	}
