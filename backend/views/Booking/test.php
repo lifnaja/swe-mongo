@@ -37,17 +37,7 @@ $baseUrl = \Yii::getAlias('@web');
   			</td>
   			<td><?=$var['nameWhoBooK'] ?></td>
   			<td> <a href="<?=$baseUrl."/booking/detail?id=".$var['_id']?>"><span class="glyphicon glyphicon-list-alt"></span></a></td>
-  			<?php 
-  				
-//   				foreach ($var->detailBooking as  $value) {
-//   					echo "<td>";
-//   					echo $value['roomID'];
-//    					echo "</td>";
-  				
-// 				}
-  			
-// 			?>
-  			</td>
+
   			
   		</tr>
   	<?php } ?>

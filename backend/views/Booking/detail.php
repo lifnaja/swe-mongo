@@ -12,20 +12,22 @@ $baseUrl = \Yii::getAlias('@web');
 <br>
 
 <br><br>
-<table class ="table" >
-  <tr class="success">
-    <th width="100px">เลขห้อง</th>
-    <th>StartDate</th>
-    <th>EndDate</th>
-	<th>Checkin</th>
-	<th>CheckOut</th> 
-	<th>Paydate</th> 
-	<th>Pay</th> 	
-	<th></th> 	
-  </tr>
+		<table class ="table" >
+		  <tr class="success">
+		    <th width="100px">เลขห้อง</th>
+		    <th>StartDate</th>
+		    <th>EndDate</th>
+			<th>Checkin</th>
+			<th>CheckOut</th> 
+			<th>Paydate</th> 
+			<th>Pay</th> 	
+			<th></th> 	
+		  </tr>
   
-
-  	<?php foreach ($model->detailBooking as $var){ ?>
+	
+  	<?php foreach ($model->detailBooking as $var){ 
+  			$i=0;
+  		?>
   		<tr>		
   			<td align="center"><?=$var['roomID'] ?></td>
   			<td><?=$var['startDate'] ?></td>
@@ -34,7 +36,7 @@ $baseUrl = \Yii::getAlias('@web');
   			<td><?=$var['CheckOut'] ?></td>
   			<td><?=$var['Paydate'] ?></td>
   			<td><?=$var['Pay'] ?></td>
-  			<td><a href="<?=$baseUrl."/booking/edit?id=".$model->_id?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+  			<td><a href="<?=$baseUrl."/booking/edit?id.0=".$model->_id?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
 
   			</td>
   			
