@@ -5,7 +5,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
+use backend\models\Booking;
 
 
 class BookingController extends Controller
@@ -68,12 +68,39 @@ class BookingController extends Controller
 		]);
 	}
 
-	public function actionqAaaa()
-	{
-		return $this->render('show', [
 	
+	
+ 	public function actionTest()
+    {
+    	$request = Yii::$app->request;
+    	$search = $request->get('search',null);
+    	
+    	$query = Booking::find();
+    	if($search != null){
+    		$query->where(["type" => $search]);
+    	}
+    	
+    	$result = $query->all();
+    	echo $search;
+    	 
+    	return $this->render('test', [
+    			'input' => $search,
+    			'result' => $result
+    			 
+    	]);
+    }
+    
+    public function actionDetail()
+    {
+    	
+		$request = Yii::$app->request;
+		$id = $request->get('id',null);
+		$model = Booking::findOne($id);
+		 
+		return $this->render('detail', [
+				'model' => $model,
 		]);
-	}
+    }
 	
 	
 	
