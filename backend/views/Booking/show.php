@@ -1,4 +1,9 @@
 <?php
+var_dump($rn);
+var_dump($one); 
+var_dump($two);
+var_dump($three);
+exit();
 $this->title = 'ห้องว่างทั้งหมด';
 $this->params['breadcrumbs'][] = ['label' => 'การจัดการ','url'=> ['index']];
 $this->params['breadcrumbs'][] = $this->title;

@@ -18,17 +18,17 @@ $BaseUrl = \Yii::getAlias('@web');
   <div class="panel-heading">
 <h3><label>จองห้องพัก</label></h3></div>
 <div class="panel-body">
-  <form>
+
     <div class="form-group">
     <h4>  <label  class="col-sm-2 control-label" >Check-in</label></h4>
       <div class="col-sm-2">
-      <input type="date" class="form-control" name="course_id">
+      <input type="date" class="form-control" name="CIn">
       </div>
     </div><br><br>
     <div class="form-group">
     <h4>  <label  class="col-sm-2 control-label" >Check-out</label></h4>
       <div class="col-sm-2">
-      <input type="date" class="form-control" name="course_name">
+      <input type="date" class="form-control" name="COut">
       </div>
     </div><br><br>
     <input type="submit" class="btn btn-default" value="บันทึก">
