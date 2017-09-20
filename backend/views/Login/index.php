@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-
+$BaseUrl = \Yii::getAlias('@web');
 
 ?>
 
@@ -33,7 +33,7 @@ use yii\bootstrap\ActiveForm;
   							
   							<div class="form-group">
     							<div class="col-sm-offset-4 col-sm-10">
-    								<a href="register" class="btn btn-warning" role="button">สมัครสมาชิก</a>
+    								<a href="<?=$BaseUrl."/login/register" ?>" class="btn btn-warning" role="button">สมัครสมาชิก</a>
       								<button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
       								
     							</div>
