@@ -16,12 +16,14 @@ $BaseUrl = \Yii::getAlias('@web');
      						<div class="form-group">
        							<label for="inputEmail3" class="control-label col-sm-2">ชื่อ:</label>
        							<div class="col-sm-2">
-         							<input type="text" class="form-control" name="firstname" placeholder="ชื่อ">
+         							<input type="text" class="form-control" name="firstname" placeholder="ชื่อ" 
+         								value="<?=$model['FirstName']?>">
      							</div>
      							<div class="form-group">
        								<label for="inputPassword3" class="col-sm-1 control-label">นามสกุล:</label>
        								<div class="col-sm-2">
-         								<input type="text" class="form-control" name="lastname" placeholder="นามสกุล">
+         								<input type="text" class="form-control" name="lastname" placeholder="นามสกุล"
+         									value="<?=$model['LastName']?>">
        								</div>
        							</div>
      						</div>
@@ -29,28 +31,32 @@ $BaseUrl = \Yii::getAlias('@web');
       						<div class="form-group">
        							<label for="inputEmail3" class="col-sm-2 control-label">รหัสบัตรประชาชน:</label>
        							<div class="col-sm-2">
-         							<input type="text" class="form-control" name="identity" placeholder="รหัสบัตรประชาชาน">
+         							<input type="text" class="form-control" name="identity" placeholder="รหัสบัตรประชาชาน"
+         								value="<?=$model['identity']?>">
        							</div>
        						</div>
        						<br><br>
      						<div class="form-group">
        							<label for="inputPassword3" class="col-sm-2 control-label">เบอร์โทรศัพท์ :</label>
        							<div class="col-sm-2">
-         							<input type="text" class="form-control" name="phone" placeholder="088-888-888-8">
+         							<input type="text" class="form-control" name="phone" placeholder="088-888-888-8"
+         								value="<?=$model['phone']?>">
       	 						</div>
       	 					</div>
       	 					<br><br>
        						<div class="form-group">
 					       		<label for="inputPassword3" class="col-sm-2 control-label">ที่อยู่ :</label>
 					       		<div class="col-sm-4">
-					         		<textarea class="form-control" name="address" placeholder="กรอกข้อมูลที่อยู่" rows="3"></textarea>
+					         		<input type="text" class="form-control" name="address" size="100" placeholder="ที่อยู่"
+						         		value="<?=$model['address']?> ">
 					       		</div>
      						</div>
-     						<br><br><br><br>
+     						<br><br>
      						<div class="form-group">
 						       <label for="inputPassword3" class="col-sm-2 control-label">อีเมลล์ :</label>
 						       <div class="col-sm-4">
-						         <input type="email" class="form-control" name="email" placeholder="Frist.Name@example.com">
+						         <input type="email" class="form-control" name="email" placeholder="Frist.Name@example.com"
+						         	value="<?=$model['email']?>">
 						       </div>
      						</div>
      						<br><br>

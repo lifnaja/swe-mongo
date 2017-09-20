@@ -13,16 +13,16 @@ $baseUrl = \Yii::getAlias('@web');
 <br><br>
 <table class ="table" >
   <tr class="success">
-    <th width="150">ชื่อ</th>
-    <th width="200">นามสกุล</th>
+    <th width="40">ชื่อ</th>
+    <th width="40">นามสกุล</th>
     <th width=100">เลขบัตรประชาชน</th>
     <th width="20">ที่อยู่</th> 
     <th width="20">โทรศัพท์</th>
-	<th width="20">อีเมลล์</th>
-	<th width="20">ชื่อผู้ใช้</th>
+	<th width="30">อีเมลล์</th>
+	<th width="50">ชื่อผู้ใช้</th>
 	<th width="20">ประเภท</th>
-	<th width="20">อีเมลล์</th>
-	
+	<th width="20">แก้ไข</th>
+	<th width="20">ลบ</th>
   </tr>
   
 
@@ -36,7 +36,15 @@ $baseUrl = \Yii::getAlias('@web');
   			<td><?=$var['phone'] ?></td>
   			<td><?=$var['email'] ?></td>
   			<td><?=$var['username'] ?></td>
-  			<td><?=$var['type'] ?></td>
+  			
+  			<td>
+  				<?php 
+  					if($var['type']=="2"){echo "ลูกค้า";} 
+  					else if($var['type']=="1"){echo "พนักงาน";}
+  					else {echo "ผู้จัดการ";}
+  				?>
+  			</td>
+  			
   			<td><a href="<?=$baseUrl."/user/edit?id=".$var['_id']?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
   			<td><a href="<?=$baseUrl."/user/delete?id=".$var['_id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
   		</tr>
