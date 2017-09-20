@@ -115,5 +115,11 @@ class RoomController extends Controller
 				'model' => $model,
 		]);
 	}
+	public function actionShow()
+	{
+		return $this->render('show', [
+				 
+		]);
+	}
 
 }

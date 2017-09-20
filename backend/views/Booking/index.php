@@ -10,9 +10,10 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Booking';
 $this->params['breadcrumbs'][] = $this->title;
+$BaseUrl = \Yii::getAlias('@web');
 ?>
 
-
+<form action=<?=$BaseUrl."/booking/show" ?>>
     <div class="panel panel-default">
   <div class="panel-heading">
 <h3><label>จองห้องพัก</label></h3></div>
@@ -30,28 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
       <input type="date" class="form-control" name="course_name">
       </div>
     </div><br><br>
-    <div class="form-group">
-    <h4>  <label  class="col-sm-2 control-label" >ประเภทห้อง</label></h4>
-      <div class="col-sm-2">
-      <select name="num" class="form-control">
-        <option value="room"></option>
-          <option value="room">Family Bedroom</option>
-          <option value="room">King Size Bedroom</option>
-          <option value="room">Single Bedroom</option>
-      </select>
-      </div>
-    </div><br><br>
-    <div class="form-group">
-    <h4>  <label  class="col-sm-2 control-label" >จำนวน</label></h4>
-      <div class="col-sm-2">
-        <select name="num" class="form-control" >
-            <option value="0">จำนวน</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select><br><br>
-<input type="submit" class="btn btn-default" value="บันทึก">
+    <input type="submit" class="btn btn-default" value="บันทึก">
+       </div>
 </form>
-      </div>
-</div>
+  
 
