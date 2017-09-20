@@ -23,7 +23,7 @@ class DetailBooking extends \yii\mongodb\ActiveRecord
      */
     public static function collectionName()
     {
-        return ['Hotel', 'room'];
+        return ['Hotel', 'detailBooking'];
     }
 
     /**
