@@ -1,5 +1,5 @@
 <?php
-$this->title = 'การจัดการ';
+$this->title = 'การจัดการข้อมูลห้อง';
 $this->params['breadcrumbs'][] = $this->title;
 
 $baseUrl = \Yii::getAlias('@web');
@@ -7,42 +7,29 @@ $baseUrl = \Yii::getAlias('@web');
 
 ?>
 
-<form action="" method="get">
-	<div class="form-group">
-	<div class="col-md-2">
-          <input type="text" class="form-control" placeholder="Search">
-        </div></div>
-        <button type="submit" class="btn btn-info">ค้นหา</button>
-</form>
+<!-- <form action="" method="get"> -->
+<!-- 	<div class="form-group"> -->
+<!-- 	<div class="col-md-2"> -->
+<!--           <input type="text" class="form-control" placeholder="Search" name="search"> -->
+<!--         </div></div> -->
+<!--         <button type="submit" class="btn btn-info">ค้นหา</button> -->
+<!-- </form> -->
 <br>
-<a href="<?=$baseUrl."/course/create" ?>"><button type="button" class="btn btn-info">สร้าง</button></a>
+<a href="<?=$baseUrl."/room/create" ?>"><button type="button" class="btn btn-info">สร้าง</button></a>
 <br><br>
 <table class ="table" >
   <tr class="success">
-    <th >ลำดับที่</th>
-    <th>รหัสห้อง</th>
-    <th>ประเภทห้อง</th>
-    <th>ราคา</th>
-   
+    <th width="150">หมายเลขห้อง</th>
+    <th width="200">ประเภทห้อง</th>
+    <th width=100">ราคา</th>
+	<th width="20">แก้ไข</th>
+	<th width="20">ลบ</th> 
   </tr>
   
-  <?php 
-//   	foreach ($result as $var){
-//   		echo "<tr>";
-//   			echo "<td>".$var['_id']."</td>";
-//   			echo "<td width=\"100px\">".$var['course_id']."</td>";
-// 			echo "<td>".$var['name']."</td>";
-// 			echo "<td>".$var['description']."</td>";
-// 			echo "<td>".$var['lecturer_id']."</td>";
-//   		echo "</tr>";
-//   	}
-  	
-  	?>
+
   	
   	<?php foreach ($result as $var){ ?>
-  		<tr>
-  			<td width="100px"><?=$var['_id'] ?></td>
-  			<td><?=$var['_id'] ?></td>
+  		<tr>		
   			<td><?=$var['roomID'] ?></td>
   			<td><?=$var['type'] ?></td>
   			<td><?=$var['price'] ?></td>

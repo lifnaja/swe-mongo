@@ -6,8 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use common\models\User;
-
+use backend\models\Room;
 /**
  * Site controller
  */
@@ -48,9 +47,9 @@ class RoomController extends Controller
 		$request = Yii::$app->request;
     	$search = $request->get('search',null);
     	 
-    	$query = User
+    	$query = Room::find();
     	if($search != null){
-    		$query->where(["name" => $search]);
+    		$query->where(["type" => $search]);
     	}
     	$result = $query->all();
     	echo $search;
@@ -61,6 +60,60 @@ class RoomController extends Controller
     	
     	]);
 	}
-
+	
+	public function actionCreate()
+	{
+		return $this->render('create', [
+				 
+		]);
+	}
+	
+	public function actionSave()
+	{
+		$request = Yii::$app->request;
+		$id = $request->get('id',null);
+		$roomID = $request->get('roomID',null);
+		$type = $request->get('type',null);
+		$price = $request->get('price',null);
+		 
+	
+		$baseUrl = \Yii::getAlias('@web');
+		if($id ==null){
+			$model = new Room();
+		}else{
+			$model = Room::findOne($id);
+		}
+		$model->roomID = $roomID;
+		$model->type = $type;
+		$model->price = $price;
+		if($model->save()){
+			echo "success";
+		}else{
+			echo "unsuccess";
+		}
+		return $this->redirect($baseUrl."/room/index");
+	}
+	
+	public function actionDelete()
+	{
+		$request = Yii::$app->request;
+		$id = $request->get('id',null);
+		$baseUrl = \Yii::getAlias('@web');
+		 
+		$model = Room::findOne($id);
+		$model->delete();
+		return $this->redirect($baseUrl."/room/index");
+	}
+	
+	public function actionEdit()
+	{
+		$request = Yii::$app->request;
+		$id = $request->get('id',null);
+		$model = Room::findOne($id);
+		 
+		return $this->render('edit', [
+				'model' => $model,
+		]);
+	}
 
 }
