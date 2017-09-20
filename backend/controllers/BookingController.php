@@ -6,6 +6,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use backend\models\DetailBooking;
+use backend\models\Booking;
 
 /**
  *Hotel controller
@@ -62,7 +64,27 @@ class BookingController extends Controller
     {
         return $this->render('index');
     }
-
+	
+    public function actionTest()
+    {
+    	$request = Yii::$app->request;
+    	$search = $request->get('search',null);
+    	
+    	$query = Booking::find();
+    	if($search != null){
+    		$query->where(["type" => $search]);
+    	}
+    	
+    	$result = $query->all();
+    	echo $search;
+    	 
+    	return $this->render('test', [
+    			'input' => $search,
+    			'result' => $result
+    			 
+    	]);
+    }
+    
    
     
 }

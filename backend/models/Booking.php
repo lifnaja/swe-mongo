@@ -33,18 +33,18 @@ class Booking extends \yii\mongodb\ActiveRecord
 				'bookingID',
 				'bookingDate',
 				'userID',
-				'nameWhoBook'
-				
+				'nameWhoBooK',
+				'detailBooking'
 		];
 	}
 
 	/**
 	 * @inheritdoc
 	 */
-	//public function rules()
-	//{
-		//return [
-			//	[['name','gender','degree','phone_number'], 'safe']
-//		];
-	//}
+	public function rules()
+	{
+		return [
+				[['_id','bookingID','bookingDate','userID','nameWhoBook','detailBooking'], 'safe']
+		];
+	}
 }
