@@ -12,7 +12,7 @@ $BaseUrl = \Yii::getAlias('@web');
   		<div class="panel-heading">
 			<h3><label>ห้องว่างทั้งหมด</label></h3></div>
 			<div class="panel-body">
-  				<form action="<?=$BaseUrl."/hotel/index" ?>" method="get">
+  				<form action="<?=$BaseUrl."/hotel/index" ?>" method="post">
   					<input type="hidden" name="stDate" value="<?=$stDate?>">
   					<input type="hidden" name="endDate" value="<?=$endDate?>">
     				<h4><label>ประเภทห้อง</label>
