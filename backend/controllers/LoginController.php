@@ -53,13 +53,13 @@ class LoginController extends Controller
             ],
         ];
     }
-	
+
     public function beforeAction($action)
     {
     	$this->enableCsrfValidation = false;
     	return parent::beforeAction($action);
     }
-    
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -75,7 +75,7 @@ class LoginController extends Controller
 	      $request = Yii::$app->request;
 	      $baseUrl = \Yii::getAlias('@web');
 	      $session = Yii::$app->session;
-	
+
 	      if($session->has('user'))
 	      {
 	        return $this->redirect($baseUrl."hotel/index");
@@ -84,7 +84,7 @@ class LoginController extends Controller
 	      }
     }
 
-  
+
     public function actionLogout()
     {
           $session = Yii::$app->session;
@@ -95,50 +95,55 @@ class LoginController extends Controller
     public function actionRegister()
     {
     	return $this->render('register', [
-    			 
+
     	]);
     }
-    
+    public function setName($value)
+    {
+        session_name($value);
+    }
     public function actionLoginaction()
     {
     	//config
     	$request = Yii::$app->request;
     	$baseUrl = \Yii::getAlias('@web');
     	$session = Yii::$app->session;
-    
+
     	$username = $request->post('username',null);
     	$pass = $request->post('password',null);
-    	
+
     	$customer = User::findOne(['username' => $username]);
     	if(isset($customer) && ( $pass == $customer->password ))
     	{
+
     		$session->set('user', $customer);
+        setName($customer);
     		$session->setFlash('success', " ยินดีต้อนรับเข้าสู่ระบบ");
     		return $this->redirect($baseUrl."/hotel/index");
     	}
-    	else 
+    	else
     	{
     		$session->setFlash('danger', " ชื่อใช้หรือรหัสผ่านไม่ถูก กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
     		return $this->redirect($baseUrl."/login/index");
     	}
     }
-    
+
     public function actionLoginsave()
     {
     	//config
     	$request = Yii::$app->request;
     	$baseUrl = \Yii::getAlias('@web');
-    
-    
+
+
     }
-    
-    
+
+
     public function actionRegistersave()
     {
     	//config
     	$request = Yii::$app->request;
     	$baseUrl = \Yii::getAlias('@web');
-    
+
     	//get id edit , not id -> new
     	$fname = $request->get('firstname',null);
     	$lname = $request->get('lastname',null);
@@ -147,14 +152,14 @@ class LoginController extends Controller
     	$pass = $request->get('password',null);
     	$address = $request->get('address',null);
     	$customer = new User();
-    
+
     	$customer->firstname= $fname;
     	$customer->lastname= $lname;
     	$customer->phone= $phone;
     	$customer->email= $email;
     	$customer->password=  md5($pass);
     	$customer->address= $address;
-    
+
     	if($customer->save()){
     		echo "success";
     	}else {

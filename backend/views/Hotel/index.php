@@ -5,7 +5,7 @@ use yii\helpers\BaseUrl;
 
 $this->title = 'หน้าแรก';
 
-
+$session = Yii::$app->session;
 $BaseUrl = \Yii::getAlias('@web');
 ?>
 
@@ -14,23 +14,25 @@ $BaseUrl = \Yii::getAlias('@web');
 
     <div class="col-12">
       <div class="pull-left">
-        <h1>ArmaBookStore</h1>
+        <h1>Urban Hotel</h1>
       </div>
        <div class="pull-right text-right">
-         <?php if (isset($customer)): ?>
+         <?php if ($session->has('user')):
+          echo "<br>";
+        //  var_damp($session);?>
+           <?php if($session->isActive){
+             echo "active";
+           }
+          // var_damp'user' ?>
 
-           <?=$customer->firstname?>  <?=$customer->lastname?>
+           AAA
            <a href="<?=$BaseUrl."/login/logout"?>">ออกจากระบบ</a>
 
-             <p>จำนวนหนังสือทั้งหมด <b id="book_count">0</b> เล่ม <br> รวม <b id="price">0</b> บาท </p>
-             <button type="button" class="btn btn-success btn-sm pull-right" id="rent" data-toggle="modal" data-target="#loading">
-               ยืมเลย
-             </button>
-             <br>
-             <br>
+
          <?php else: ?>
-           <a href="<?=$BaseUrl."/login/index"?>" class="btn btn-primary">
+           <br><a href="<?=$BaseUrl."/login/index"?>" class="btn btn-primary">
              Login
+
            </a>
            <br>
            <br>
@@ -44,13 +46,13 @@ $BaseUrl = \Yii::getAlias('@web');
   <div class="container-fluid">
   	 <img src="<?=$BaseUrl."/picture/header.jpg" ?>" width="1140px">
   </div>
-  
+
   <div class="container">
   	<div class="row">
-  		
+
 	  	<form action="<?=$BaseUrl."/show/save" ?>" method="get">
 		  	<div class="form-group">
-		  		
+
 					<div class="form-group">
 						<label class="col-sm-1 control-label">Check-In</label>
 						<div class="col-sm-2">
@@ -63,15 +65,15 @@ $BaseUrl = \Yii::getAlias('@web');
 							<input type="date" class="form-control" name="COut">
 						</div>
 					</div>
-					
+
 					<input type="submit" class="btn btn-default" value="ค้นหาห้องพัก">
 			</div>
 		</form>
 	</div>
 
-  
-  
-  
+
+
+
 
 		  <div class="row">
 			  <div class="col-sm-6 col-md-4">
@@ -91,7 +93,7 @@ $BaseUrl = \Yii::getAlias('@web');
 			 			 	3,500
 			 			</h3>
 			        </div>
-			       
+
 			      </div>
 			    </div>
 			  </div>
@@ -112,7 +114,7 @@ $BaseUrl = \Yii::getAlias('@web');
 			 			 	2,000
 			 			</h3>
 			        </div>
-			         
+
 			      </div>
 			    </div>
 			  </div>
@@ -133,16 +135,16 @@ $BaseUrl = \Yii::getAlias('@web');
 			 			 	1,500
 			 			</h3>
 			        </div>
-			        
+
 			      </div>
 			    </div>
 			  </div>
 		</div>
   </div>
-	
-	
-	
-	
+
+
+
+
 	  <div class="py-5 bg-light">
 	    <div class="container">
 	      <div class="row">
