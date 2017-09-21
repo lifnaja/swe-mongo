@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use backend\models\User;
 
 /**
  * Site controller
@@ -53,11 +54,6 @@ class LoginController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         return $this->render('index');
@@ -69,31 +65,26 @@ class LoginController extends Controller
      * @return string
      */
     public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
+	{
+	      $request = Yii::$app->request;
+	      $baseUrl = \Yii::getAlias('@web');
+	      $session = Yii::$app->session;
+	
+	      if($session->has('user'))
+	      {
+	        return $this->redirect($baseUrl."hotel/index");
+	      }else {
+	        return $this->render('login');
+	      }
     }
 
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
+  
     public function actionLogout()
     {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
+          $session = Yii::$app->session;
+	      $baseUrl = \Yii::getAlias('@web');
+	      $session->remove('user');
+	      return $this->redirect($baseUrl."/");
     }
     public function actionRegister()
     {
@@ -102,4 +93,67 @@ class LoginController extends Controller
     	]);
     }
     
+    public function actionLoginaction()
+    {
+    	//config
+    	$request = Yii::$app->request;
+    	$baseUrl = \Yii::getAlias('@web');
+    	$session = Yii::$app->session;
+    
+    	$username = $request->post('username',null);
+    	$pass = $request->post('password',null);
+    
+    	$customer = User::findOne(['username' => $username]);
+    	if(isset($customer) && ( $pass == $customer->password ))
+    	{
+    		$session->set('user', $customer);
+    		$session->setFlash('success', " ยินดีต้อนรับเข้าสู่ระบบ");
+    		return $this->redirect($baseUrl."hotel/index");
+    	}
+    	else 
+    	{
+    		$session->setFlash('danger', " ชื่อใช้หรือรหัสผ่านไม่ถูก กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
+    		return $this->redirect($baseUrl."/login/index");
+    	}
+    }
+    
+    public function actionLoginsave()
+    {
+    	//config
+    	$request = Yii::$app->request;
+    	$baseUrl = \Yii::getAlias('@web');
+    
+    
+    }
+    
+    
+    public function actionRegistersave()
+    {
+    	//config
+    	$request = Yii::$app->request;
+    	$baseUrl = \Yii::getAlias('@web');
+    
+    	//get id edit , not id -> new
+    	$fname = $request->get('firstname',null);
+    	$lname = $request->get('lastname',null);
+    	$email = $request->get('email',null);
+    	$phone = $request->get('phone',null);
+    	$pass = $request->get('password',null);
+    	$address = $request->get('address',null);
+    	$customer = new User();
+    
+    	$customer->firstname= $fname;
+    	$customer->lastname= $lname;
+    	$customer->phone= $phone;
+    	$customer->email= $email;
+    	$customer->password=  md5($pass);
+    	$customer->address= $address;
+    
+    	if($customer->save()){
+    		echo "success";
+    	}else {
+    		echo "error";
+    	}
+    	return $this->redirect($baseUrl."/login/index");
+    }
 }
