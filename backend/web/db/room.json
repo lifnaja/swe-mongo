@@ -1,0 +1,54 @@
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f758"),
+    "roomID" : 1,
+    "type" : "Family Bedroom",
+    "price" : 3500
+}
+
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f75a"),
+    "roomID" : 2,
+    "type" : "King Size Bedroom",
+    "price" : 2500
+}
+
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f75c"),
+    "roomID" : 3,
+    "type" : "King Size Bedroom",
+    "price" : 2500
+}
+
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f75e"),
+    "roomID" : 4,
+    "type" : "Single Bedroom",
+    "price" : 1500
+}
+
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f760"),
+    "roomID" : 5,
+    "type" : "Single Bedroom",
+    "price" : 1500
+}
+
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f762"),
+    "roomID" : 6,
+    "type" : "Single Bedroom",
+    "price" : 1500
+}
+
+{
+    "_id" : ObjectId("59b815ffcb41a81f92d8f764"),
+    "roomID" : 7,
+    "type" : "Single Bedroom",
+    "price" : 1500
+}
