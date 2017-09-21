@@ -31,7 +31,7 @@ $BaseUrl = \Yii::getAlias('@web');
       <input type="date" class="form-control" name="COut">
       </div>
     </div><br><br>
-    <input type="submit" class="btn btn-default" value="บันทึก">
+    <input type="submit" class="btn btn-default" value="ค้นหา">
        </div>
 </form>
   
