@@ -306,6 +306,53 @@ class BookingController extends Controller
     	]);
     }
     
+    public function actionEditdetail()
+    {
+    
+    	$request = Yii::$app->request;
+    	$id = $request->get('id',null);
+    	$index = $request->get('index',null);
+    	$model = Booking::findOne($id);
+    
+    	$i=0;
+    	foreach ($model->detailBooking as $abc)
+    	{
+    		if($i<=$index){
+    			$detail = $abc;
+    		}
+    		$i++;
+    	}
+    
+    
+    	return $this->render('editdetail', [
+    			'model' => $detail,
+    			'index' => $index,
+    	]);
+    }
+    
+    public function actionSavecheckin()
+    {
+    
+    	$request = Yii::$app->request;
+    	$id = $request->get('id',null);
+    	$index = $request->get('index',null);
+    	$model = Booking::findOne($id);
+    
+    	$i=0;
+    	foreach ($model->detailBooking as $abc)
+    	{
+    		if($i<=$index){
+    			$detail = $abc;
+    		}
+    		$i++;
+    	}
+    
+    
+    	return $this->render('editdetail', [
+    			'model' => $detail,
+    			'index' => $index,
+    	]);
+    }
 	
 
 }
