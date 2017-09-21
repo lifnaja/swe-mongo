@@ -12,7 +12,7 @@ use backend\models\Room;
 
 class BookingController extends Controller
 {
-   
+
     public function behaviors()
     {
         return [
@@ -112,13 +112,20 @@ class BookingController extends Controller
     	->andWhere(['>=', 'startDate', $checkin])
     	->andWhere(['<=', 'endDate', $checkOut])->all();
     	 
-    	$i=0;
     	
-    	foreach ($roomNot as $roomNum){
-    		$rn[$i] = $roomNum['roomID'];
-    		$i++;
+    	if ($roomNot != null)
+    	{
+    		$i=0;
+	    	foreach ($roomNot as $roomNum){
+	    		$rn[$i] = $roomNum['roomID'];
+	    		$i++;
+	    	}
     	}
-
+    	else 
+    	{
+    		$rn=0;
+    	}
+    		
     	
     	//ห้องที่ว่าง
     	$query = Room::find()->where(['not in','roomID',$rn])->all();
@@ -142,13 +149,163 @@ class BookingController extends Controller
     	
     	
     	return $this->render('show', [
-    			'rn' => $rn,
+    			'stDate' => $checkin,
+    			'endDate' => $checkOut,
     			'one' => $faBed,
     			'two' => $KingBed,
     			'three' => $SingleBed,
     	]);
     }
    
+    
+    public function actionSave()
+    {
+    	
+    	$request = Yii::$app->request;
+     	$id = $request->get('id',null);
+    	$num1 = $request->get('one',null);
+    	$num2 = $request->get('two',null);
+    	$num3 = $request->get('three',null);
+    	//หาจำนวนห้องที่จอง
+    	$all=$num1+$num2+$num3;
+    	
+    	$checkin = $request->get('stDate',null);
+    	$checkOut = $request->get('endDate',null);
+   
+    	$all=$num1+$num2+$num3;
+    	
+    	$userID = 1;
+    	$nameWhobooK = "Qqw";
+    	$bookDate = null;
+    	$n="null";
+    	
+    	//หาเลขbookingID
+    	$booking = Booking::find()->all();
+    	$total = count((array)$booking);
+    	$total++;
+    	
+
+    	//ห้องไม่ว่าง
+    	$roomNot = DetailBooking::find()->where(['status'=> 1 ])
+    	->andWhere(['>=', 'startDate', $checkin])
+    	->andWhere(['<=', 'endDate', $checkOut])->all();
+    	
+    	
+    	
+    	if ($roomNot != null)
+    	{
+    		$i=0;
+	    	foreach ($roomNot as $roomNum){
+	    		$rn[$i] = $roomNum['roomID'];
+	    		$i++;
+	    	}
+    	}
+    	else 
+    	{
+    		$rn=0;
+    	}
+
+    	
+
+    	$model = new Booking();
+    	 
+    	$model->bookingID = $total;
+    	$model->bookingDate = $bookDate;
+    	$model->userID = $userID;
+    	$model->nameWhoBooK = $nameWhobooK;
+    	
+    	$bookingdetail =[];
+    	$j=0;
+    	//family bedroom
+    	if($num1!=0){
+    		$roomBusyByType	= Room::find()->where(['not in','roomID',$rn])
+    		->andWhere(['type' => "2 king bed"])
+    		->limit($num1)
+    		->all();
+
+    		$i=0;
+    		foreach ($roomBusyByType as $roomID){
+    			$room[$i] = $roomID['roomID'];
+    			$i++;
+    		}
+    		 
+    		
+    		for ($i=0; $i<$num1 ; $i++){
+    			$bookingdetail[$j]['roomID'] = $room[$i];
+    			$bookingdetail[$j]['startDate'] = $checkin;
+   	    		$bookingdetail[$j]['endDate'] =  $checkOut;
+    		  	$bookingdetail[$j]['Checkin'] = $n;
+    		   	$bookingdetail[$j]['CheckOut'] = $n;
+    		    $bookingdetail[$j]['Paydate'] = $n;
+    		   	$bookingdetail[$j]['Pay'] = $n;
+    		   	$j++;
+    		  }
+    
+    	}
+
+    	if($num2!=0){
+    		$roomBusyByType	= Room::find()->where(['not in','roomID',$rn])
+    		->andWhere(['type' => "1 king bed"])
+    		->limit($num2)
+    		->all();
+    		
+
+    		$i=0;
+    		foreach ($roomBusyByType as $roomID){
+    			$room[$i] = $roomID['roomID'];
+    			$i++;
+    		}
+    		 
+    		
+    		for ($i=0; $i<$num2 ; $i++){
+    			$bookingdetail[$j]['roomID'] = $room[$i];
+    			$bookingdetail[$j]['startDate'] = $checkin;
+    			$bookingdetail[$j]['endDate'] =  $checkOut;
+    			$bookingdetail[$j]['Checkin'] = $n;
+    			$bookingdetail[$j]['CheckOut'] = $n;
+    			$bookingdetail[$j]['Paydate'] = $n;
+    			$bookingdetail[$j]['Pay'] = $n;
+    			$j++;
+    		}
+    	
+    	}
+
+    	if($num3!=0){
+    		$roomBusyByType	= Room::find()->where(['not in','roomID',$rn])
+    		->andWhere(['type' => "2 single bed"])
+    		->limit($num3)
+    		->all();
+    		 
+
+    		$i=0;
+    		foreach ($roomBusyByType as $roomID){
+    			$room[$i] = $roomID['roomID'];
+    			$i++;
+    		}
+    	
+    	
+    		for ($i=0; $i<$num3 ; $i++){
+    			$bookingdetail[$j]['roomID'] = $room[$i];
+    			$bookingdetail[$j]['startDate'] = $checkin;
+    			$bookingdetail[$j]['endDate'] =  $checkOut;
+    			$bookingdetail[$j]['Checkin'] = $n;
+    			$bookingdetail[$j]['CheckOut'] = $n;
+    			$bookingdetail[$j]['Paydate'] = $n;
+    			$bookingdetail[$j]['Pay'] = $n;
+    			$j++;
+    		}
+    			
+    	}
+    	
+    	$model->detailBooking = $bookingdetail;
+    	$model->save();
+    	
+    	
+    	return $this->render('save', [
+    			'model' => $roomBusyByType,
+    	]);
+    }
+    
 	
 
 }
