@@ -95,6 +95,7 @@ class BookingController extends Controller
 		 
 		return $this->render('detail', [
 				'model' => $model,
+				'idOb'	=> $id,
 		]);
     }
 	
