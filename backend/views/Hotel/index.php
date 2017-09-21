@@ -48,7 +48,7 @@ $BaseUrl = \Yii::getAlias('@web');
   <div class="container">
   	<div class="row">
 
-	  	<form action="<?=$BaseUrl."/hotel/show" ?>" method="get">
+	  	<form action="<?=$BaseUrl."/booking/show" ?>" method="get">
 		  	<div class="form-group">
 
 					<div class="form-group">
