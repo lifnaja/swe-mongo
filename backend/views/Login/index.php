@@ -31,14 +31,12 @@ Html::csrfMetaTags()
     							<div class="col-sm-5">
       								<input type="password" class="form-control" name="password" placeholder="รหัสผ่าน">
     							</div>
-  							</div>						
+  							</div>	
+  							<div class="col-sm-offset-4 col-sm-10">
+  								<button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>	
+  							</div>				
 		</form>
-			<div class="form-group">
-    			<div class="col-sm-offset-4 col-sm-10">
-    				<a href="<?=$BaseUrl."/login/register" ?>" class="btn btn-warning" role="button">สมัครสมาชิก</a>
-      					<button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
-    			</div>
-  			</div>
+		
 	</div>
 
 
