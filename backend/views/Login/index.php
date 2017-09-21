@@ -1,3 +1,4 @@
+
 <?php
 
 /* @var $this yii\web\View */
@@ -7,13 +8,13 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 $BaseUrl = \Yii::getAlias('@web');
-
+Html::csrfMetaTags()
 ?>
 
 
     <div class="container">
 
-      <form class="form-horizontal" action="<?=$BaseUrl."/login/loginaction" ?>" method="Post" >
+      <form class="form-horizontal" method="post" action="<?=$BaseUrl."/login/loginaction" ?>"  >
         <div class="panel panel-default">
   			<div class="panel-heading">
     			<center><h3><label>เข้าสู่ระบบ</label></h3></center></div>

@@ -53,7 +53,13 @@ class LoginController extends Controller
             ],
         ];
     }
-
+	
+    public function beforeAction($action)
+    {
+    	$this->enableCsrfValidation = false;
+    	return parent::beforeAction($action);
+    }
+    
     public function actionIndex()
     {
         return $this->render('index');
@@ -102,13 +108,13 @@ class LoginController extends Controller
     
     	$username = $request->post('username',null);
     	$pass = $request->post('password',null);
-    
+    	
     	$customer = User::findOne(['username' => $username]);
     	if(isset($customer) && ( $pass == $customer->password ))
     	{
     		$session->set('user', $customer);
     		$session->setFlash('success', " ยินดีต้อนรับเข้าสู่ระบบ");
-    		return $this->redirect($baseUrl."hotel/index");
+    		return $this->redirect($baseUrl."/hotel/index");
     	}
     	else 
     	{
