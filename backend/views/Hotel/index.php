@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\BaseUrl;
+
+
 $this->title = 'หน้าแรก';
 
 
@@ -8,42 +10,60 @@ $BaseUrl = \Yii::getAlias('@web');
 ?>
 
 <body>
+ <div class="row">
+
+    <div class="col-12">
+      <div class="pull-left">
+        <h1>ArmaBookStore</h1>
+      </div>
+       <div class="pull-right text-right">
+         <?php if (isset($customer)): ?>
+
+           <?=$customer->firstname?>  <?=$customer->lastname?>
+           <a href="<?=$BaseUrl."/login/logout"?>">ออกจากระบบ</a>
+
+             <p>จำนวนหนังสือทั้งหมด <b id="book_count">0</b> เล่ม <br> รวม <b id="price">0</b> บาท </p>
+             <button type="button" class="btn btn-success btn-sm pull-right" id="rent" data-toggle="modal" data-target="#loading">
+               ยืมเลย
+             </button>
+             <br>
+             <br>
+         <?php else: ?>
+           <a href="<?=$BaseUrl."/login/index"?>" class="btn btn-primary">
+             Login
+           </a>
+           <br>
+           <br>
+         <?php endif; ?>
+
+       </div>
+       <br>
+
+     </div>
+ </div>
   <div class="container-fluid">
-  	 <img src="picture/header.jpg" width="1140px">
+  	 <img src="<?=$BaseUrl."/picture/header.jpg" ?>" width="1140px">
   </div>
   
   <div class="container">
   	<div class="row">
   		
-	  	<form action="<?=$BaseUrl."/course-app/save" ?>" method="get">
+	  	<form action="<?=$BaseUrl."/show/save" ?>" method="get">
 		  	<div class="form-group">
 		  		
 					<div class="form-group">
-						<label class="col-sm-1 control-label">Check-in</label>
+						<label class="col-sm-1 control-label">Check-In</label>
 						<div class="col-sm-2">
-							<input type="date" class="form-control" name="course_id">
+							<input type="date" class="form-control" name="CIn">
 						</div>
 					</div>
 					<div class="form-group">
-						<label  class="col-sm-2 control-label" >Check-out</label>
+						<label  class="col-sm-2 control-label" >Check-Out</label>
 						<div class="col-sm-2">
-							<input type="date" class="form-control" name="course_name">
+							<input type="date" class="form-control" name="COut">
 						</div>
 					</div>
-					<div class="form-group">
-						<label  class="col-sm-1 control-label">จำนวน</label>
-						<div class="col-sm-1">
-							<select name="num" class="form-control">
-								  <option value="1">1</option>
-								  <option value="2">2</option>
-								  <option value="3">3</option>
-								  <option value="4">4</option>
-								  <option value="5">5</option>
-								  <option value="6">6</option>
-								  <option value="7">7</option>
-							</select>
-						</div>
-					</div>
+					
 					<input type="submit" class="btn btn-default" value="ค้นหาห้องพัก">
 			</div>
 		</form>
