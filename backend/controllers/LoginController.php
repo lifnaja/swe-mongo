@@ -98,10 +98,7 @@ class LoginController extends Controller
 
     	]);
     }
-    public function setName($value)
-    {
-        session_name($value);
-    }
+
     public function actionLoginaction()
     {
     	//config
@@ -117,7 +114,6 @@ class LoginController extends Controller
     	{
 
     		$session->set('user', $customer);
-        setName($customer);
     		$session->setFlash('success', " ยินดีต้อนรับเข้าสู่ระบบ");
     		return $this->redirect($baseUrl."/hotel/index");
     	}

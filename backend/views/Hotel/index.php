@@ -18,14 +18,12 @@ $BaseUrl = \Yii::getAlias('@web');
       </div>
        <div class="pull-right text-right">
          <?php if ($session->has('user')):
-          echo "<br>";
-        //  var_damp($session);?>
-           <?php if($session->isActive){
-             echo "active";
-           }
-          // var_damp'user' ?>
+          echo "<br>";?>
 
-           AAA
+          
+
+
+
            <a href="<?=$BaseUrl."/login/logout"?>">ออกจากระบบ</a>
 
 
