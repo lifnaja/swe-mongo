@@ -65,7 +65,7 @@ class BookingController extends Controller
     }
    
 	
- 	public function actionTest()
+ 	public function actionHistory()
     {
     	$request = Yii::$app->request;
     	$search = $request->get('search',null);

@@ -66,7 +66,7 @@ $BaseUrl = \Yii::getAlias('@web');
 					<div class="form-group">
 						<input type="submit" class="btn btn-default" value="ค้นหาห้องพัก">
 					</div>
-					<a href="<?=$BaseUrl."/booking/test" ?>" class="btn btn-info" role="button">ประวัติการจอง</a>
+					<a href="<?=$BaseUrl."/booking/history" ?>" class="btn btn-info" role="button">ประวัติการจอง</a>
 			</div>
 		</form>
 			
