@@ -25,8 +25,9 @@ $baseUrl = \Yii::getAlias('@web');
 		  </tr>
   
 	
-  	<?php foreach ($model->detailBooking as $var){ 
-  			$i=0;
+  	<?php $i=0;
+  		foreach ($model->detailBooking as $var){ 
+  			
   		?>
   		<tr>		
   			<td align="center"><?=$var['roomID'] ?></td>
@@ -36,12 +37,17 @@ $baseUrl = \Yii::getAlias('@web');
   			<td><?=$var['CheckOut'] ?></td>
   			<td><?=$var['Paydate'] ?></td>
   			<td><?=$var['Pay'] ?></td>
-  			<td><a href="<?=$baseUrl."/booking/edit?id.0=".$model->_id?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
-
+  			<td>
+  			 
+				<form action="<?=$baseUrl."/booking/editdt" ?>" method="Get">
+					<input type="hidden" name="id" value="<?=$idOb?>">
+					<input type="hidden" name="index" value="<?=$i?>">
+					<input type="submit" value="แก้ไข">
+				</form>
   			</td>
   			
   		</tr>
-  	<?php } ?>
+  	<?php $i++;} ?>
 </table>
 
 

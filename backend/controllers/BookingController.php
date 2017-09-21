@@ -307,7 +307,7 @@ class BookingController extends Controller
     	]);
     }
     
-    public function actionEditdetail()
+    public function actionEditdt()
     {
     
     	$request = Yii::$app->request;
@@ -325,7 +325,7 @@ class BookingController extends Controller
     	}
     
     
-    	return $this->render('editdetail', [
+    	return $this->render('editdt', [
     			'model' => $detail,
     			'index' => $index,
     	]);
