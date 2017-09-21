@@ -136,11 +136,11 @@ class BookingController extends Controller
     	$KingBed=0;
     	$SingleBed=0;
     	foreach ($query as $room){
-    		if($room['type']== "2 king bed")
+    		if($room['type']== "Family Bedroom")
     		{
     			$faBed++;
     		}
-    		elseif ($room['type']=="1 king bed")
+    		elseif ($room['type']=="King Size Bedroom")
     		{
     			$KingBed++;
     		}else {
@@ -207,7 +207,7 @@ class BookingController extends Controller
     	}
 
     	
-
+		//booking
     	$model = new Booking();
     	 
     	$model->bookingID = $total;
@@ -217,10 +217,17 @@ class BookingController extends Controller
     	
     	$bookingdetail =[];
     	$j=0;
+    	
+
+    	
+    	
+    	
+    	
+    	
     	//family bedroom
     	if($num1!=0){
     		$roomBusyByType	= Room::find()->where(['not in','roomID',$rn])
-    		->andWhere(['type' => "2 king bed"])
+    		->andWhere(['type' => "Family Bedroom"])
     		->limit($num1)
     		->all();
 
@@ -232,6 +239,7 @@ class BookingController extends Controller
     		 
     		
     		for ($i=0; $i<$num1 ; $i++){
+    			//collection booking
     			$bookingdetail[$j]['roomID'] = $room[$i];
     			$bookingdetail[$j]['startDate'] = $checkin;
    	    		$bookingdetail[$j]['endDate'] =  $checkOut;
@@ -239,6 +247,17 @@ class BookingController extends Controller
     		   	$bookingdetail[$j]['CheckOut'] = $n;
     		    $bookingdetail[$j]['Paydate'] = $n;
     		   	$bookingdetail[$j]['Pay'] = $n;
+    		   	
+    		   	//collection detailBooking
+    		   	$modelDetailBooking = new DetailBooking();
+    		   	$modelDetailBooking->bookingID = $total;
+    		   	$modelDetailBooking->startDate= $checkin;
+    		   	$modelDetailBooking->endDate = $checkOut;
+    		   	$modelDetailBooking->status = 1;
+    		   	$modelDetailBooking->roomID = $room[$i];
+    		   	
+    		   	$modelDetailBooking->save();
+    		   	
     		   	$j++;
     		  }
     
@@ -246,12 +265,13 @@ class BookingController extends Controller
 
     	if($num2!=0){
     		$roomBusyByType	= Room::find()->where(['not in','roomID',$rn])
-    		->andWhere(['type' => "1 king bed"])
+    		->andWhere(['type' => "King Size Bedroom"])
     		->limit($num2)
     		->all();
     		
 
     		$i=0;
+    		
     		foreach ($roomBusyByType as $roomID){
     			$room[$i] = $roomID['roomID'];
     			$i++;
@@ -266,6 +286,18 @@ class BookingController extends Controller
     			$bookingdetail[$j]['CheckOut'] = $n;
     			$bookingdetail[$j]['Paydate'] = $n;
     			$bookingdetail[$j]['Pay'] = $n;
+    			
+    			//collection detailBooking
+    			$modelDetailBooking = new DetailBooking();
+    			$modelDetailBooking->bookingID = $total;
+    			$modelDetailBooking->startDate= $checkin;
+    			$modelDetailBooking->endDate = $checkOut;
+    			$modelDetailBooking->status = 1;
+    			$modelDetailBooking->roomID = $room[$i];
+    			
+    			$modelDetailBooking->save();
+    			
+    			$j++;
     			$j++;
     		}
     	
@@ -273,7 +305,7 @@ class BookingController extends Controller
 
     	if($num3!=0){
     		$roomBusyByType	= Room::find()->where(['not in','roomID',$rn])
-    		->andWhere(['type' => "2 single bed"])
+    		->andWhere(['type' => "Single Bedroom"])
     		->limit($num3)
     		->all();
     		 
@@ -293,6 +325,17 @@ class BookingController extends Controller
     			$bookingdetail[$j]['CheckOut'] = $n;
     			$bookingdetail[$j]['Paydate'] = $n;
     			$bookingdetail[$j]['Pay'] = $n;
+    			
+    			//collection detailBooking
+    			$modelDetailBooking = new DetailBooking();
+    			$modelDetailBooking->bookingID = $total;
+    			$modelDetailBooking->startDate= $checkin;
+    			$modelDetailBooking->endDate = $checkOut;
+    			$modelDetailBooking->status = 1;
+    			$modelDetailBooking->roomID = $room[$i];
+    			
+    			$modelDetailBooking->save();
+    			
     			$j++;
     		}
     			
