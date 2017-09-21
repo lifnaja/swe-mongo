@@ -48,7 +48,7 @@ $BaseUrl = \Yii::getAlias('@web');
   <div class="container">
   	<div class="row">
 
-	  	<form action="<?=$BaseUrl."/show/save" ?>" method="get">
+	  	<form action="<?=$BaseUrl."/hotel/show" ?>" method="get">
 		  	<div class="form-group">
 
 					<div class="form-group">
@@ -63,12 +63,17 @@ $BaseUrl = \Yii::getAlias('@web');
 							<input type="date" class="form-control" name="COut">
 						</div>
 					</div>
-
-					<input type="submit" class="btn btn-default" value="ค้นหาห้องพัก">
+					<div class="form-group">
+						<input type="submit" class="btn btn-default" value="ค้นหาห้องพัก">
+					</div>
+					<a href="<?=$BaseUrl."/booking/test" ?>" class="btn btn-info" role="button">ประวัติการจอง</a>
 			</div>
 		</form>
+			
+		
 	</div>
-
+	
+		
 
 
 
@@ -143,28 +148,3 @@ $BaseUrl = \Yii::getAlias('@web');
 
 
 
-	  <div class="py-5 bg-light">
-	    <div class="container">
-	      <div class="row">
-	        <div class="col-md-6 text-center align-self-center">
-	          <p class="mb-5"> <strong>Pingendo Inc.</strong>
-	            <br>795 Folsom Ave, Suite 600
-	            <br>San Francisco, CA 94107
-	            <br> <abbr title="Phone">P:</abbr> (123) 456-7890 </p>
-	          <div class="my-3 row">
-	            <div class="col-4">
-	              <a href="https://www.facebook.com" target="blank"><i class="fa fa-3x fa-facebook"></i></a>
-	            </div>
-	            <div class="col-4">
-	              <a href="https://twitter.com" target="blank"><i class="fa fa-3x fa-twitter"></i></a>
-	            </div>
-	            <div class="col-4">
-	              <a href="https://www.instagram.com" target="blank"><i class="fa fa-3x fa-instagram"></i></a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-6 p-0">
-	          <img class="img-fluid" src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDW8nO9JhT_pEjebobq9pgUF2cEp0EUb1I&amp;&amp;markers=folsom+Ave+san+francisco&amp;center=folsom+Ave+san+francisco&amp;zoom=16&amp;size=640x300&amp;sensor=false&amp;scale=2"> </div>
-	      </div>
-	    </div>
-  	</div>
