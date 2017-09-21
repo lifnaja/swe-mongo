@@ -371,6 +371,7 @@ class BookingController extends Controller
     	return $this->render('editdt', [
     			'model' => $detail,
     			'index' => $index,
+    			'idOb' => $id,
     	]);
     }
     
@@ -382,6 +383,7 @@ class BookingController extends Controller
     	$index = $request->get('index',null);
     	$model = Booking::findOne($id);
     
+    	
     	$i=0;
     	foreach ($model->detailBooking as $abc)
     	{

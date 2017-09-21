@@ -37,31 +37,33 @@ $BaseUrl = \Yii::getAlias('@web');
      					<div class="form-group">
        						<label for="inputPassword3" class="col-sm-2 control-label">check-in:</label>
        						<div class="col-sm-2">
-         					    <input type="text" class="form-control" name="Checkin" value="<?=$model['Checkin']?>">
+         					    <input type="date" class="form-control" name="Checkin" value="<?=$model['Checkin']?>">
       	 					</div>
       	 			</div>
       	 					<br><br>
        				<div class="form-group">
 					       	<label for="inputPassword3" class="col-sm-2 control-label">check-out:</label>
 					       	<div class="col-sm-2">
-					           <input type="text" class="form-control" name="CheckOut" value="<?=$model['CheckOut']?>">
+					           <input type="date" class="form-control" name="CheckOut" value="<?=$model['CheckOut']?>">
 					       		</div>
      					</div>
      						<br><br><br>
      					<div class="form-group">
 						       <label for="inputPassword3" class="col-sm-2 control-label">Pay:</label>
 						       <div class="col-sm-2">
-						         <input type="text" class="form-control" name="Pay" value="<?=$model['Pay']?>" disabled> 
+						         <input type="text" class="form-control" name="Pay" value="<?=$model['Pay']?>"> 
 						       </div>
 						  </div>
 						   <br><br>
 						   <div class="form-group">
 						       <label for="inputPassword3" class="col-sm-2 control-label">Paydate:</label>
 						       <div class="col-sm-2">
-						         <input type="email" class="form-control" name="Paydate" 
+						         <input type="date" class="form-control" name="Paydate" 
 						         value="<?=$model['Paydate']?>">
 						       </div>
      					</div>
+     						<input type="hidden" name="id" value="<?=$idOb?>">
+     						<input type="hidden" name="index" value="<?=$index?>">
      					   <div class="col-md-12 col-md-offset-4">
        							<button type="submit" class="btn btn-primary" name="submit">บันทึก</button>
      					   </div>
