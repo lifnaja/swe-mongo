@@ -78,7 +78,7 @@ class BookingController extends Controller
     	$result = $query->all();
     	echo $search;
     	 
-    	return $this->render('test', [
+    	return $this->render('history', [
     			'input' => $search,
     			'result' => $result
     			 

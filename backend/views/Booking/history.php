@@ -28,10 +28,10 @@ $baseUrl = \Yii::getAlias('@web');
   			<td><?=$var['bookingDate'] ?></td>
   			<td>
   				<?php 
-  						$var['userID'];
-  						if($var['userID'] != null){
-  							$customer = User::find()->where(['_id' => $var['userID']])->one();
-  						}
+  						$id=$var['userID'];
+  						
+  							$customer = User::findOne(['_id' => $id]);
+  					
   						echo $customer['FirstName'];
   				?>
   			</td>
@@ -41,6 +41,7 @@ $baseUrl = \Yii::getAlias('@web');
   			
   		</tr>
   	<?php } ?>
+  	
 </table>
 
 
