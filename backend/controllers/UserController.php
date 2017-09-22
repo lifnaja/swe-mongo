@@ -80,10 +80,10 @@ class UserController extends Controller
 		$email = $request->get('email',null);
 		$username = $request->get('username',null);
 		$password = $request->get('password',null);
-		$type = "1";
+		$type = $request->get('type',null);
 	
 		$baseUrl = \Yii::getAlias('@web');
-		if($id ==null){
+		if($id == null){
 			$model = new User();
 		}else{
 			$model = User::findOne($id);

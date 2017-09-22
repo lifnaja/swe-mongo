@@ -24,6 +24,15 @@ $BaseUrl = \Yii::getAlias('@web');
          								<input type="text" class="form-control" name="lastname" placeholder="นามสกุล">
        								</div>
        							</div>
+       							<div class="form-group">
+       								<label for="inputPassword3" class="col-sm-1 control-label">ประเภท:</label>
+       								<div class="col-sm-2">
+										<select name="type" class="form-control">
+										  <option value="0">ผู้จัดการ</option>
+										  <option value="1">พนักงาน</option>
+										</select>
+       								</div>
+       							</div>
      						</div>
      						<br><br><br>
       						<div class="form-group">

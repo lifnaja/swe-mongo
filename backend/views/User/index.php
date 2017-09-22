@@ -9,7 +9,7 @@ $baseUrl = \Yii::getAlias('@web');
 
 
 <br>
-<a href="<?=$baseUrl."/room/create" ?>"><button type="button" class="btn btn-info">เพิ่มข้อมูลพนักงาน</button></a>
+<a href="<?=$baseUrl."/user/create" ?>"><button type="button" class="btn btn-info">เพิ่มข้อมูลพนักงาน</button></a>
 <br><br>
 <table class ="table" >
   <tr class="success">
@@ -28,7 +28,8 @@ $baseUrl = \Yii::getAlias('@web');
 
   	
   	<?php foreach ($result as $var){ ?>
-  		<tr>		
+  		<tr>	
+  		<?php if($var['type']!= 2) {?>	
   			<td><?=$var['FirstName'] ?></td>
   			<td><?=$var['LastName'] ?></td>
   			<td><?=$var['identity'] ?></td>
@@ -48,7 +49,7 @@ $baseUrl = \Yii::getAlias('@web');
   			<td><a href="<?=$baseUrl."/user/edit?id=".$var['_id']?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
   			<td><a href="<?=$baseUrl."/user/delete?id=".$var['_id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
   		</tr>
-  	<?php } ?>
+  	<?php } } ?>
 </table>
 
 

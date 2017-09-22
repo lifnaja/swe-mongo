@@ -1,4 +1,6 @@
 <?php
+
+
 $this->title = 'เพิ่มข้อมูลพนักงาน';
 $this->params['breadcrumbs'][] = ['label' => 'การจัดการ','url'=> ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -10,6 +12,7 @@ $BaseUrl = \Yii::getAlias('@web');
 	<div class="container">
 		<div class="row">
 			<div class="panel panel-info">
+			<input type="hidden" name="id" value="<?=$model['_id']?>">
 				<div class="panel-heading"><b>เพิ่มข้อมูลพนักงาน</b></div>
  					<div class="panel-body">
    						<form action="">
@@ -24,6 +27,15 @@ $BaseUrl = \Yii::getAlias('@web');
        								<div class="col-sm-2">
          								<input type="text" class="form-control" name="lastname" placeholder="นามสกุล"
          									value="<?=$model['LastName']?>">
+       								</div>
+       							</div>
+       							<div class="form-group">
+       								<label for="inputPassword3" class="col-sm-1 control-label">ประเภท:</label>
+       								<div class="col-sm-2">
+										<select name="type" class="form-control">
+										  <option value="0">ผู้จัดการ</option>
+										  <option value="1">พนักงาน</option>
+										</select>
        								</div>
        							</div>
      						</div>
@@ -63,14 +75,14 @@ $BaseUrl = \Yii::getAlias('@web');
      						<div class="form-group">
 						       <label for="inputPassword3" class="col-sm-2 control-label">ชื่อผู้ใช้ :</label>
 						       <div class="col-sm-2">
-						         <input type="text" class="form-control" name="username" placeholder="ชื่อผู้ใช้" ></input>
+						         <input type="text" class="form-control" name="username" placeholder="ชื่อผู้ใช้" value="<?=$model['username']?>" >
 						       </div>
 						   </div>
 						   <br><br>
 						   <div class="form-group">
 						   		<label for="inputPassword3" class="col-sm-2 control-label">รหัสผ่าน :</label>
 						       	<div class="col-sm-2">
-						        	<input type="password" class="form-control" name="password" placeholder="รหัสผ่าน">
+						        	<input type="password" class="form-control" name="password" placeholder="รหัสผ่าน" value="<?=$model['password']?>">
 						       </div>
 						   </div>
 						   <br><br><br><br>
