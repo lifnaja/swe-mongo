@@ -37,29 +37,41 @@ $BaseUrl = \Yii::getAlias('@web');
      					<div class="form-group">
        						<label for="inputPassword3" class="col-sm-2 control-label">check-in:</label>
        						<div class="col-sm-2">
-         					    <input type="date" class="form-control" name="Checkin" value="<?=$model['Checkin']?>">
+       							<?php if($model['Checkin']=="null") {?>
+         					    	<input type="date" class="form-control" name="Checkin">
+         					    <?php }else{ ?>
+         					    	<input type="text" class="form-control" name="Checkin" value="<?=$model['Checkin']?>" disabled>
+         					     <?php } ?>
       	 					</div>
       	 			</div>
       	 					<br><br>
        				<div class="form-group">
 					       	<label for="inputPassword3" class="col-sm-2 control-label">check-out:</label>
 					       	<div class="col-sm-2">
-					           <input type="date" class="form-control" name="CheckOut" value="<?=$model['CheckOut']?>">
+					       		<?php if($model['CheckOut']=="null") {?>
+					           		<input type="date" class="form-control" name="CheckOut">
+					           	 <?php }else{ ?>
+					           	 	<input type="text" class="form-control" name="Checkin" value="<?=$model['CheckOut']?>" disabled>
+					           	 <?php } ?>
 					       		</div>
      					</div>
      						<br><br><br>
      					<div class="form-group">
 						       <label for="inputPassword3" class="col-sm-2 control-label">Pay:</label>
 						       <div class="col-sm-2">
-						         <input type="text" class="form-control" name="Pay" value="<?=$model['Pay']?>"> 
+						         <input type="text" class="form-control" name="Pay" value="<?=$model['Pay']?>" disabled>  
 						       </div>
 						  </div>
 						   <br><br>
 						   <div class="form-group">
 						       <label for="inputPassword3" class="col-sm-2 control-label">Paydate:</label>
 						       <div class="col-sm-2">
-						         <input type="date" class="form-control" name="Paydate" 
-						         value="<?=$model['Paydate']?>">
+						       		<?php if($model['CheckOut']=="null") {?>
+						         		<input type="date" class="form-control" name="Paydate" >
+						         	 <?php }else{ ?>
+						         	 	<input type="text" class="form-control" name="Checkin" value="<?=$model['Paydate']?>" disabled>
+					           	 	 <?php } ?>
+						         
 						       </div>
      					</div>
      						<input type="hidden" name="id" value="<?=$idOb?>">

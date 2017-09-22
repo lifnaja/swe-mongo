@@ -71,12 +71,9 @@ class BookingController extends Controller
     	$search = $request->get('search',null);
     	
     	$query = Booking::find();
-    	if($search != null){
-    		$query->where(["type" => $search]);
-    	}
     	
     	$result = $query->all();
-    	echo $search;
+    	
     	 
     	return $this->render('history', [
     			'input' => $search,
@@ -176,7 +173,7 @@ class BookingController extends Controller
    
     	$all=$num1+$num2+$num3;
     	
-    	$userID = 1;
+    	$userID = "59c47db50974f718640079e6";
     	
     	$date = new \DateTime();
     	$bookDate = $date->format('Y-m-d');
@@ -380,9 +377,12 @@ class BookingController extends Controller
     	$model->detailBooking = $bookingdetail;
     	$model->save();
     	
+    	$query = Booking::find();
+    	 
+    	$result = $query->all();
     	
-    	return $this->render('save', [
-    			'model' => $roomBusyByType,
+    	return $this->render('history', [
+    			'result' => $result,
     	]);
     }
     
