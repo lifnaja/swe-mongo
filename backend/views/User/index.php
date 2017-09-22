@@ -1,5 +1,5 @@
 <?php
-$this->title = 'การจัดการข้อมูลผู้ใช้';
+$this->title = 'การจัดการข้อมูลผู้ใช้ ';
 $this->params['breadcrumbs'][] = $this->title;
 
 $baseUrl = \Yii::getAlias('@web');
@@ -9,7 +9,8 @@ $baseUrl = \Yii::getAlias('@web');
 
 
 <br>
-<a href="<?=$baseUrl."/user/create" ?>"><button type="button" class="btn btn-info">เพิ่มข้อมูลพนักงาน</button></a>
+<a href="<?=$baseUrl."/user/create" ?>"><button type="button" class="btn btn-info">เพิ่มข้อมูลพนักงาน/Employee Data Insert </button></a>
+
 <br><br>
 <table class ="table" >
   <tr class="success">
@@ -51,5 +52,6 @@ $baseUrl = \Yii::getAlias('@web');
   		</tr>
   	<?php } } ?>
 </table>
+
 
 
