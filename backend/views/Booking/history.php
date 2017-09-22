@@ -14,11 +14,11 @@ $baseUrl = \Yii::getAlias('@web');
 <br><br>
 <table class ="table" >
   <tr class="success">
-    <th width="100px">รหัสการจอง</th>
-    <th>วันที่จอง</th>
-    <th>ชื่อพนักงานที่ทำรายการ</th>
-	<th>ชื่อลูกค้าที่จอง</th>
-	<th>ดูข้อมูลเพิ่ม</th> 
+    <th width="100px">รหัสการจอง/Booking ID</th>
+    <th>วันที่จอง/Booking Date</th>
+    <th>ชื่อพนักงานที่ทำรายการ/Employee name</th>
+	<th>ชื่อลูกค้าที่จอง/Booking Customer Name</th>
+	<th>ดูข้อมูลเพิ่ม/See more</th> 
   </tr>
   
 

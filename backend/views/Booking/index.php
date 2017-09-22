@@ -16,7 +16,7 @@ $BaseUrl = \Yii::getAlias('@web');
 <form action=<?=$BaseUrl."/booking/show" ?>>
     <div class="panel panel-default">
   <div class="panel-heading">
-<h3><label>จองห้องพัก</label></h3></div>
+<h3><label>จองห้องพัก/Room Booking</label></h3></div>
 <div class="panel-body">
 
     <div class="form-group">
