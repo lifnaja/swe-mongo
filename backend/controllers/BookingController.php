@@ -176,8 +176,9 @@ class BookingController extends Controller
     	$all=$num1+$num2+$num3;
     	
     	$userID = 1;
-    	$nameWhobooK = "Qqw";
-    	$bookDate = null;
+    	$nameWhoBook = $request->get('nameWhoBook',null);
+    	$date = new DateTime();
+    	$bookDate = $date->format('Y-m-d');
     	$n="null";
     	
     	//หาเลขbookingID

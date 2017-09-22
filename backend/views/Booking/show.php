@@ -83,6 +83,13 @@ $BaseUrl = \Yii::getAlias('@web');
 	      				</div>
     				</div>
     				<br><br>
+    				<div class="form-group">
+        				<h5><label  class="col-sm-2 control-label" >ชื่อผู้จอง</label></h5>
+      					<div class="col-sm-2">
+        					<input type="text" class="form-control" name="nameWhoBook">
+      					</div>
+      				</div>
+      				<br><br>
 					<input type="submit" class="btn btn-default" value="จองห้องพัก" >
 				</form>
       		</div>
