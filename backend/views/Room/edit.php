@@ -22,7 +22,12 @@ $BaseUrl = \Yii::getAlias('@web');
 							<div class="form-group">
     							<label  class="col-sm-2 control-label" >ประเภทห้อง :</label>
       								<div class="col-sm-2">
-        								<input type="text" name="type" class="form-control" value="<?=$model['type']?>">
+        								<select name="type" class="form-control" >
+		            						<option value="0">ประเภทห้อง</option>
+		            						<option value="1">Single Bedroom</option>
+		            						<option value="2">Family Bedroom</option>
+		            						<option value="3">King Size Bedroom</option>
+        								</select>
         							</div>
         					</div>
 							<div class="form-group">
@@ -32,6 +37,9 @@ $BaseUrl = \Yii::getAlias('@web');
      								</div>
      								<label for="inputEmail3" class="control-label col-sm-1">บาท</label>
      						</div>
+     						 <div class="form-group">
+       									<button type="submit" class="btn btn-primary" name="submit">เพิ่มข้อมูล</button>
+     					   			</div>
      				</div>
 				</form>			
 			</div>
