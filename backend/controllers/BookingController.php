@@ -167,6 +167,7 @@ class BookingController extends Controller
     	$num1 = $request->get('one',null);
     	$num2 = $request->get('two',null);
     	$num3 = $request->get('three',null);
+    	$nameWhoBook = $request->get('nameWhoBook',null);
     	//หาจำนวนห้องที่จอง
     	$all=$num1+$num2+$num3;
     	
@@ -176,8 +177,8 @@ class BookingController extends Controller
     	$all=$num1+$num2+$num3;
     	
     	$userID = 1;
-    	$nameWhoBook = $request->get('nameWhoBook',null);
-    	$date = new DateTime();
+    	
+    	$date = new \DateTime();
     	$bookDate = $date->format('Y-m-d');
     	$n="null";
     	
@@ -192,8 +193,7 @@ class BookingController extends Controller
     	->andWhere(['>=', 'startDate', $checkin])
     	->andWhere(['<=', 'endDate', $checkOut])->all();
     	
-    	
-    	
+
     	if ($roomNot != null)
     	{
     		$i=0;
@@ -214,16 +214,12 @@ class BookingController extends Controller
     	$model->bookingID = $total;
     	$model->bookingDate = $bookDate;
     	$model->userID = $userID;
-    	$model->nameWhoBooK = $nameWhobooK;
+    	$model->nameWhoBooK = $nameWhoBook;
     	
     	$bookingdetail =[];
     	$j=0;
     	
 
-    	
-    	
-    	
-    	
     	
     	//family bedroom
     	if($num1!=0){
@@ -247,7 +243,19 @@ class BookingController extends Controller
     		  	$bookingdetail[$j]['Checkin'] = $n;
     		   	$bookingdetail[$j]['CheckOut'] = $n;
     		    $bookingdetail[$j]['Paydate'] = $n;
-    		   	$bookingdetail[$j]['Pay'] = $n;
+    		    
+    		    //count date and cal Pay
+
+    		    $startTimeStamp = strtotime($checkin);
+    		    $endTimeStamp = strtotime($checkOut);
+    		    
+    		    $timeDiff = abs($endTimeStamp - $startTimeStamp);
+    		    $numberDays = $timeDiff/86400; 
+    		    $numberDays = intval($numberDays);
+    		   
+    		    $Pay = $numberDays * 3500;
+    		    
+    		   	$bookingdetail[$j]['Pay'] = $Pay;
     		   	
     		   	//collection detailBooking
     		   	$modelDetailBooking = new DetailBooking();
@@ -286,7 +294,20 @@ class BookingController extends Controller
     			$bookingdetail[$j]['Checkin'] = $n;
     			$bookingdetail[$j]['CheckOut'] = $n;
     			$bookingdetail[$j]['Paydate'] = $n;
-    			$bookingdetail[$j]['Pay'] = $n;
+    			
+    			//count date and cal Pay
+    			
+    			$startTimeStamp = strtotime($checkin);
+    			$endTimeStamp = strtotime($checkOut);
+    			
+    			$timeDiff = abs($endTimeStamp - $startTimeStamp);
+    			$numberDays = $timeDiff/86400;
+    			$numberDays = intval($numberDays);
+    				
+    			$Pay = $numberDays * 2000;
+    			
+    			$bookingdetail[$j]['Pay'] = $Pay;
+    	
     			
     			//collection detailBooking
     			$modelDetailBooking = new DetailBooking();
@@ -325,7 +346,21 @@ class BookingController extends Controller
     			$bookingdetail[$j]['Checkin'] = $n;
     			$bookingdetail[$j]['CheckOut'] = $n;
     			$bookingdetail[$j]['Paydate'] = $n;
-    			$bookingdetail[$j]['Pay'] = $n;
+    			
+    			//count date and cal Pay
+    			
+    			$startTimeStamp = strtotime($checkin);
+    			$endTimeStamp = strtotime($checkOut);
+    			
+    			$timeDiff = abs($endTimeStamp - $startTimeStamp);
+    			$numberDays = $timeDiff/86400;
+    			$numberDays = intval($numberDays);
+    				
+    			$Pay = $numberDays * 1500;
+    			
+    			$bookingdetail[$j]['Pay'] = $Pay;
+    			
+    			
     			
     			//collection detailBooking
     			$modelDetailBooking = new DetailBooking();
