@@ -31,7 +31,7 @@ $BaseUrl = \Yii::getAlias('@web');
 									<div class="form-group">
        									<label for="inputEmail3" class="control-label col-sm-1">ราคา :</label>
        										<div class="col-sm-1">
-         										<input type="text" class="form-control" name="roomID" placeholder="ราคา">
+         										<input type="text" class="form-control" name="price" placeholder="ราคา">
      										</div>
      								</div>
      								 <div class="form-group">
