@@ -15,15 +15,15 @@ $baseUrl = \Yii::getAlias('@web');
 <!--         <button type="submit" class="btn btn-info">ค้นหา</button> -->
 <!-- </form> -->
 <br>
-<a href="<?=$baseUrl."/room/create" ?>"><button type="button" class="btn btn-info">สร้าง</button></a>
+<a href="<?=$baseUrl."/room/create" ?>"><button type="button" class="btn btn-info">สร้าง/Create</button></a>
 <br><br>
 <table class ="table" >
   <tr class="success">
-    <th width="150">หมายเลขห้อง</th>
-    <th width="200">ประเภทห้อง</th>
-    <th width=100">ราคา</th>
-	<th width="20">แก้ไข</th>
-	<th width="20">ลบ</th> 
+    <th width="150">หมายเลขห้อง/Room Number</th>
+    <th width="200">ประเภทห้อง/Type Room</th>
+    <th width=100">ราคา/Price</th>
+	<th width="20">แก้ไข/Insert</th>
+	<th width="20">ลบ/Delete</th> 
   </tr>
   
 

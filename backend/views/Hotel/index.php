@@ -24,7 +24,7 @@ $BaseUrl = \Yii::getAlias('@web');
 
 
 
-           <a href="<?=$BaseUrl."/login/logout"?>">ออกจากระบบ</a>
+           <a href="<?=$BaseUrl."/login/logout"?>">ออกจากระบบ/Log out</a>
 
 
          <?php else: ?>

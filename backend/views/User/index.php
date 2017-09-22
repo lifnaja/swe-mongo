@@ -14,16 +14,16 @@ $baseUrl = \Yii::getAlias('@web');
 <br><br>
 <table class ="table" >
   <tr class="success">
-    <th width="40">ชื่อ</th>
-    <th width="40">นามสกุล</th>
-    <th width=100">เลขบัตรประชาชน</th>
-    <th width="20">ที่อยู่</th> 
-    <th width="20">โทรศัพท์</th>
-	<th width="30">อีเมลล์</th>
-	<th width="50">ชื่อผู้ใช้</th>
-	<th width="20">ประเภท</th>
-	<th width="20">แก้ไข</th>
-	<th width="20">ลบ</th>
+    <th width="40">ชื่อ/Name:</th>
+    <th width="40">นามสกุล/Lastname:</th>
+    <th width=100">เลขบัตรประชาชน/ID Card:</th>
+    <th width="20">ที่อยู่/Address:</th> 
+    <th width="20">โทรศัพท์/Phone Number:</th>
+	<th width="30">อีเมลล์/E-mail:</th>
+	<th width="50">ชื่อผู้ใช้/Username:</th>
+	<th width="20">ประเภท/Type:</th>
+	<th width="20">แก้ไข/Update:</th>
+	<th width="20">ลบ/Delete:</th>
   </tr>
   
 

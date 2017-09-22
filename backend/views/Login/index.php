@@ -17,7 +17,7 @@ Html::csrfMetaTags()
       <form class="form-horizontal" method="post" action="<?=$BaseUrl."/login/loginaction" ?>"  >
         <div class="panel panel-default">
   			<div class="panel-heading">
-    			<center><h3><label>เข้าสู่ระบบ</label></h3></center></div>
+    			<center><h3><label>เข้าสู่ระบบ/Log In</label></h3></center></div>
         			<div class="form-group">
   						<div class="panel-body">
   							<div class="form-group">

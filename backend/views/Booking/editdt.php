@@ -14,7 +14,7 @@ $BaseUrl = \Yii::getAlias('@web');
 				<div class="panel-heading"><b>Check-In/Check-Out</b></div>
  					<div class="panel-body">
      					<div class="form-group">
-       						<label for="inputEmail3" class="control-label col-sm-2">เลขห้อง:</label>
+       						<label for="inputEmail3" class="control-label col-sm-2">เลขห้อง/Room Number:</label>
        						<div class="col-sm-2">
          					    <input type="text" class="form-control" name="roomID" value="<?=$model['roomID']?>" disabled>
      						  </div>
@@ -77,7 +77,7 @@ $BaseUrl = \Yii::getAlias('@web');
      						<input type="hidden" name="id" value="<?=$idOb?>">
      						<input type="hidden" name="index" value="<?=$index?>">
      					   <div class="col-md-12 col-md-offset-4">
-       							<button type="submit" class="btn btn-primary" name="submit">บันทึก</button>
+       							<button type="submit" class="btn btn-primary" name="submit">บันทึก/Save</button>
      					   </div>
    						
 					</div>

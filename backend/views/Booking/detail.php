@@ -14,7 +14,7 @@ $baseUrl = \Yii::getAlias('@web');
 <br><br>
 		<table class ="table" >
 		  <tr class="success">
-		    <th width="100px">เลขห้อง</th>
+		    <th width="100px">เลขห้อง/Room Number</th>
 		    <th>StartDate</th>
 		    <th>EndDate</th>
 			<th>Checkin</th>
